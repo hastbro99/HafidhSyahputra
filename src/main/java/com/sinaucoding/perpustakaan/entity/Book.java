@@ -18,7 +18,8 @@ import javax.persistence.Table;
 public class Book extends BaseEntity<Book> {
 
     private static final long serialVersionUID = 7050910721166239902L;
-    @Column(name = "title", columnDefinition = "VARCHART(150)")
+
+    @Column(name = "title", columnDefinition = "VARCHAR(150)")
     private String title;
 
     @Column(name = "isbn")

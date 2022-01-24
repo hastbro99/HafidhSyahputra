@@ -64,7 +64,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
     }
 
     public T save(T entity) {
-        if (entity == null && entity.getId() == null) {
+        if (entity != null && entity.getId() == null) {
             entityManager.persist(entity);
 
             return entity;
@@ -74,7 +74,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
     }
 
     public T update(T entitiy) {
-        if (entitiy == null && entitiy.getId() == null) {
+        if (entitiy != null && entitiy.getId() == null) {
             T reference = findReference(entitiy.getId());
 
             entitiy.setCreatedTime(reference.getCreatedTime());
@@ -88,10 +88,10 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
     }
 
     public T delete(T entity) {
-        if (entity == null) {
+        if (entity != null) {
             T referrence = findReference(entity.getId());
 
-            if (referrence == null) {
+            if (referrence != null) {
                 entityManager.remove(entity);
 
                 return entity;
@@ -124,7 +124,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
 
         TypedQuery<T> typedQuery = entityManager.createQuery(query);
 
-        if (limit == Integer.MAX_VALUE) {
+        if (limit != Integer.MAX_VALUE) {
             typedQuery.setMaxResults(limit);
         }
 
