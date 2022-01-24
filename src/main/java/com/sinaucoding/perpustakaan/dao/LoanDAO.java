@@ -1,7 +1,6 @@
 package com.sinaucoding.perpustakaan.dao;
 
 import com.sinaucoding.perpustakaan.entity.Loan;
-import com.sinaucoding.perpustakaan.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
